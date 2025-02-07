@@ -1,7 +1,7 @@
 {
     "name": "HIIT Timer",
     "short_name": "HIIT Timer",
-    "start_url": "/hiit-timer/inex.html",
+    "start_url": "/hiit-timer/index.html",
     "display": "standalone",
     "background_color": "#ffffff",
     "theme_color": "#000000",
