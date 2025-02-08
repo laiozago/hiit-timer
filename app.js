@@ -1,4 +1,10 @@
-let timeLeft = 60; // Tempo inicial em segundos
+let workouts = [
+    { name: "Alta Intensidade", duration: 30 },
+    { name: "Descanso", duration: 15 },
+];
+
+let currentPhase = 0;
+let timeLeft = workouts[currentPhase].duration;
 let timer;
 let isRunning = false;
 
@@ -9,7 +15,7 @@ const resetBtn = document.getElementById("resetBtn");
 function updateDisplay() {
     let minutes = Math.floor(timeLeft / 60);
     let seconds = timeLeft % 60;
-    timerDisplay.textContent = `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
+    timerDisplay.textContent = `${workouts[currentPhase].name}: ${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
 }
 
 function startPauseTimer() {
@@ -22,8 +28,7 @@ function startPauseTimer() {
                 timeLeft--;
                 updateDisplay();
             } else {
-                clearInterval(timer);
-                alert("Tempo acabou!");
+                switchPhase();
             }
         }, 1000);
         startPauseBtn.textContent = "Pausar";
@@ -31,17 +36,21 @@ function startPauseTimer() {
     isRunning = !isRunning;
 }
 
+function switchPhase() {
+    currentPhase = (currentPhase + 1) % workouts.length;
+    timeLeft = workouts[currentPhase].duration;
+    updateDisplay();
+}
+
 function resetTimer() {
     clearInterval(timer);
-    timeLeft = 60;
+    currentPhase = 0;
+    timeLeft = workouts[currentPhase].duration;
     updateDisplay();
     startPauseBtn.textContent = "Iniciar";
     isRunning = false;
 }
 
-// Eventos
 startPauseBtn.addEventListener("click", startPauseTimer);
 resetBtn.addEventListener("click", resetTimer);
-
-// Atualiza a tela inicial
 updateDisplay();
