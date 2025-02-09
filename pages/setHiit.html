@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HIIT Timer</title>
+    <title>HIIT TIMER</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="manifest" href="manifest.json">
@@ -11,7 +11,11 @@
 <body>
     <div class="container">
         <h1>HIIT TIMER</h1>
-        <button id="startPauseBtn" onclick="window.location.href='pages/setHiit.html'">Iniciar Treino</button>
+        <label for="hiitTime">Alta intensidade</label>
+        <input type="number" id="hiitTime" value="20">
+        <label for="restTime">Descanso</label>
+        <input type="number" id="restTime" value="10">
+        <button id="startBtn" onclick="window.location.href='hiit.html'">Iniciar Treino</button>
     </div>
 </body>
 </html>

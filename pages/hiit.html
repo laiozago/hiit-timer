@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HIIT TIMER</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+    
+    <div class="container">
+        <h1>HIIT Timer</h1>
+        <div id="timer">00:00</div>
+        <button id="startPauseBtn">Iniciar</button>
+        <button id="resetBtn">Finalizar Treino</button>
+        <h2>Histórico</h2>
+        <div id="totalTime">Tempo Total: 00:00</div>
+        <ul id="historyList"></ul>
+    </div>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('scripts/service-worker.js')
+                .then(() => console.log('Service Worker registrado!'))
+                .catch(err => console.log('Erro no Service Worker', err));
+        }
+    </script>
+    <script src="scripts/app.js"></script>
+</body>
+</html>
