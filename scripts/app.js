@@ -1,4 +1,4 @@
-function getWorkouts() {
+function getTimes() {
     let tempos = localStorage.getItem("tempos");
     //string para array
     let temposArray = tempos.split(",");
@@ -6,7 +6,7 @@ function getWorkouts() {
     return temposArray;
 }
 
-temposArray = getWorkouts();
+temposArray = getTimes();
 
 let workouts = [
     { name: "Alta Intensidade", duration:temposArray[0], count: 0 },
@@ -72,6 +72,9 @@ function resetTimer() {
     
     workouts.forEach(phase => phase.count = 0); // Reseta os contadores
 
+    //salva o tempo total no local storage
+    localStorage.setItem("tempoTotal", totalTimeDisplay.textContent);
+
     currentPhase = 0;
     timeLeft = workouts[currentPhase].duration;
     updateDisplay();
@@ -79,6 +82,9 @@ function resetTimer() {
     
     startPauseBtn.textContent = "Iniciar";
     isRunning = false;
+
+    //redireciona para a página de resultados
+    window.location.href = "results.html";
 }
 
 function updateHistoryList() {
