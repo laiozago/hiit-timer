@@ -13,5 +13,12 @@
         <h1>HIIT TIMER</h1>
         <button id="startPauseBtn" onclick="window.location.href='pages/setHiit.html'">Iniciar Treino</button>
     </div>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('scripts/service-worker.js')
+                .then(() => console.log('Service Worker registrado!'))
+                .catch(err => console.log('Erro no Service Worker', err));
+        }
+    </script>
 </body>
 </html>

@@ -17,5 +17,13 @@
         <input type="number" id="restTime" value="10">
         <button id="startBtn" onclick="window.location.href='hiit.html'">Iniciar Treino</button>
     </div>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('../scripts/service-worker.js')
+                .then(() => console.log('Service Worker registrado!'))
+                .catch(err => console.log('Erro no Service Worker', err));
+        }
+    </script>
+    <script src="../scripts/setHiit.js"></script>
 </body>
 </html>
