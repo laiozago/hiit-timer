@@ -2,8 +2,8 @@ const CACHE_NAME = "hiit-timer-cache-v1";
 const urlsToCache = [
     "../",
     "../index.html",
-    "../styles.css",
-    "../app.js",
+    "../css/styles.css",
+    "/app.js",
     "../manifest.json",
     "../assets/icons/icon-192x192.png",
     "../assets/icons/icon-512x512.png"
