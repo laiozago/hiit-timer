@@ -6,16 +6,23 @@
     <title>HIIT TIMER</title>
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/setHiit.css">
     <link rel="manifest" href="../manifest.json">
 </head>
 <body>
     <div class="container">
         <h1>HIIT TIMER</h1>
-        <label for="hiitTime">Alta intensidade</label>
-        <input type="number" id="hiitTime" value="20">
-        <label for="restTime">Descanso</label>
-        <input type="number" id="restTime" value="10">
-        <button id="startBtn" onclick="window.location.href='hiit.html'">Iniciar Treino</button>
+        <form id="meuForm" class="box outer">
+            <div class="box form">
+                <label for="hiitTime">Alta intensidade</label>
+                <input type="number" id="hiitTime" value="20">
+            </div>
+            <div class="box form">
+                <label for="restTime">Descanso</label>
+                <input type="number" id="restTime" value="10">
+            </div>
+            <button type="submit" id="startPauseBtn">Iniciar Treino</button>
+        </form>
     </div>
     <script>
         if ('serviceWorker' in navigator) {

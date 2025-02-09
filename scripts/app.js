@@ -1,8 +1,17 @@
-let workouts = [
-    { name: "Alta Intensidade", duration: 3, count: 0 },
-    { name: "Descanso", duration: 1, count: 0 },
-];
+function getWorkouts() {
+    let tempos = localStorage.getItem("tempos");
+    //string para array
+    let temposArray = tempos.split(",");
+    
+    return temposArray;
+}
 
+temposArray = getWorkouts();
+
+let workouts = [
+    { name: "Alta Intensidade", duration:temposArray[0], count: 0 },
+    { name: "Descanso", duration: temposArray[1], count: 0 },
+];
 let currentPhase = 0;
 let timeLeft = workouts[currentPhase].duration;
 let totalElapsedTime = 0;
@@ -14,6 +23,7 @@ const totalTimeDisplay = document.getElementById("totalTime");
 const startPauseBtn = document.getElementById("startPauseBtn");
 const resetBtn = document.getElementById("resetBtn");
 const historyList = document.getElementById("historyList");
+
 
 function updateDisplay() {
     let minutes = Math.floor(timeLeft / 60);

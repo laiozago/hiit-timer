@@ -1,0 +1,28 @@
+input {
+    width: 5rem;
+    height: 2rem;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+}
+
+.outer {
+    margin: 1.5rem 0rem;
+}
+
+.form {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+button {
+    margin-top: 2rem;
+}
