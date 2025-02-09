@@ -1,0 +1,11 @@
+.container {
+    justify-content: space-between;
+}
+
+.results {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    margin-top: 20px;
+    height: 40%;
+}

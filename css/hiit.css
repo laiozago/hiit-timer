@@ -1,0 +1,12 @@
+h1.titulo {
+    margin: 0 0 2rem 0;
+}
+
+#startPauseBtn, #resetBtn {
+    width: 45%;
+    margin: 1.5rem 0;
+}
+
+.container {
+    justify-content: space-between;
+}
