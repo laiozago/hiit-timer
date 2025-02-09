@@ -99,6 +99,34 @@ function updateHistoryList() {
     });
 }
 
+// Wake Lock API - mantém a tela ativa
+let wakeLock = null;
+
+async function requestWakeLock() {
+    try {
+        wakeLock = await navigator.wakeLock.request("screen");
+        console.log("Tela mantida ativa!");
+
+        // Se a Wake Lock for solta (por exemplo, se o usuário minimiza o app)
+        wakeLock.addEventListener("release", () => {
+            console.log("Wake Lock liberada!");
+        });
+    } catch (err) {
+        console.error("Erro ao ativar Wake Lock:", err);
+    }
+}
+
+// Ativar Wake Lock quando a página carregar
+document.addEventListener("DOMContentLoaded", requestWakeLock);
+
+// Reativar Wake Lock se a aba for reaberta
+document.addEventListener("visibilitychange", () => {
+    if (wakeLock !== null && document.visibilityState === "visible") {
+        requestWakeLock();
+    }
+});
+
+
 // Eventos
 startPauseBtn.addEventListener("click", startPauseTimer);
 resetBtn.addEventListener("click", resetTimer);
