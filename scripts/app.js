@@ -39,6 +39,8 @@ function startPauseTimer() {
     if (isRunning) {
         clearInterval(timer);
         startPauseBtn.textContent = "Iniciar";
+        //remove classe btnPause ao botao startPauseBtn
+        startPauseBtn.classList.remove("btnPause");
     } else {
         timer = setInterval(() => {
             if (timeLeft > 0) {
@@ -50,6 +52,10 @@ function startPauseTimer() {
             }
         }, 1000);
         startPauseBtn.textContent = "Pausar";
+        //tira a classe hide do botao de reset
+        resetBtn.classList.remove("hide");
+        //adiciona a classe btnPause ao botao startPauseBtn
+        startPauseBtn.classList.add("btnPause");
     }
     isRunning = !isRunning;
 }
